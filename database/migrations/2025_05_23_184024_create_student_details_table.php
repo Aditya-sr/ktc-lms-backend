@@ -21,11 +21,25 @@ return new class extends Migration
             $table->foreignIdFor(Section::class)->default(0);
             $table->string('full_name')->nullable();
             $table->string('father_name')->nullable();
+            $table->string('guardian_relation')->nullable();  //enum mein krna hai    
+            $table->string('guardian_phone')->nullable();
+            $table->string('guardian_mail')->nullable();
+            $table->string('guardian_occupation')->nullable();//enum mein krna hai
             $table->string('mother_name')->nullable();
             $table->string('email')->nullable();
             $table->date('dob')->nullable();
             $table->string('gender')->nullable();
-            $table->string('religion')->nullable();
+            $table->string('nationality')->nullable();
+            $table->enum('blood_group', [
+                'A+',
+                'A-',
+                'B+',
+                'B-',
+                'AB+',
+                'AB-',
+                'O+',
+                'O-'
+            ])->nullable();
             $table->string('local_address')->nullable();
             $table->string('permanent_address')->nullable();
             $table->string('city')->nullable();
