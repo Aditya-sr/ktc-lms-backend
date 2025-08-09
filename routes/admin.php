@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\v1\AdminController;
 use App\Livewire\Admin\Home;
 use App\Livewire\Admin\Standard;
 use App\Livewire\Admin\Student;
@@ -38,10 +39,14 @@ use App\Livewire\Components\Profile;
 use App\Livewire\ResetPassword;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['guest:web'])->group(function () {
-    Route::get('login', Login::class)->name('admin.login');
-    Route::get('reset-password', ResetPassword::class)->name('reset.password');
-});
+// Route::middleware(['guest:web'])->group(function () {
+//     Route::match(['get', 'post'], 'login', Login::class)->name('admin.login');
+//     Route::get('reset-password', ResetPassword::class)->name('reset.password');
+// });
+
+
+
+
 
 Route::middleware(['auth:web', 'admin'])->group(function () {
     Route::prefix('/{organization}')->group(function () {

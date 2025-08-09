@@ -33,6 +33,16 @@ class RoleSeeder extends Seeder
                 'name' => 'Teacher',
                 'slug' => 'teacher',
                 'description' => 'Regular application For Teacher'
+            ],
+            [
+                'name' => 'Parent',
+                'slug' => 'parent',
+                'description' => 'Regular application For Teacher'
+            ],
+            [
+                'name' => 'Leader',
+                'slug' => 'leader',
+                'description' => 'Regular application For Teacher'
             ]
         ];
 

@@ -10,6 +10,14 @@ class Login extends Component
 {
     public $email, $password;
     public $showPassword = false; 
+
+    public function mount()
+{
+    if (request()->isMethod('post')) {
+        $this->login(); // Handle POST requests
+    }
+}
+
     
     protected $rules = [
         'email' => 'required|email',

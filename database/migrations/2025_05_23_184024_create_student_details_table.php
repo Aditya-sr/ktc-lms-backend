@@ -21,10 +21,10 @@ return new class extends Migration
             $table->foreignIdFor(Section::class)->default(0);
             $table->string('full_name')->nullable();
             $table->string('father_name')->nullable();
-            $table->string('guardian_relation')->nullable();  //enum mein krna hai    
+            $table->enum('guardian_relation',['Father','Mother','Sibling','other'])->nullable();  //enum mein krna hai    
             $table->string('guardian_phone')->nullable();
             $table->string('guardian_mail')->nullable();
-            $table->string('guardian_occupation')->nullable();//enum mein krna hai
+            $table->enum('guardian_occupation',['Goverment','Private','Other'])->nullable();//enum mein krna hai
             $table->string('mother_name')->nullable();
             $table->string('email')->nullable();
             $table->date('dob')->nullable();
