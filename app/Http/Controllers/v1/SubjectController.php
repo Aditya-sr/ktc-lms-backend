@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Student\SectionSubject;
 use App\Models\Student\StandardSubject;
 use App\Models\Student\StudentDetail;
+use App\Models\Student\Subject;
 use App\Services\ResponseService;
 use Exception;
 use Illuminate\Http\Request;
@@ -96,5 +97,28 @@ class SubjectController extends Controller
                 500
             );
         }
+    }
+
+
+    public function index(Request $request)
+    {
+        $query = Subject::query();
+        if ($request->has('stage')) {
+            $query->where('stage', $request->stream_id);
+        }
+
+        if ($request->has('stream_id')) {
+            $query->where('stream_id', $request->stream_id);
+        }
+
+        if ($request->has('organization_id')) {
+            $query->where('organization_id', $request->organization_id);
+        }
+
+        $subjects=$query->with('stream:id,name')->get();
+        return response()->json([
+            'status' => 'success',
+            'data' => $subjects
+        ]);
     }
 }

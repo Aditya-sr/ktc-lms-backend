@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\TestController;
 use App\Http\Controllers\v1\AdminController;
+use App\Http\Controllers\v1\SubjectController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,5 +21,6 @@ Route::prefix('v1/admin')->group(function () {
     Route::post('login', [AdminController::class, 'adminLogin']);
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('profile', [AdminController::class, 'adminProfile']);
+        Route::get('subjects', [SubjectController::class, 'index']);
     });
 });
