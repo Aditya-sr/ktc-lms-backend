@@ -45,6 +45,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+Route::prefix('v1/admin')->group(function () {
+    Route::post('login', [AdminController::class, 'adminLogin']);
+    Route::middleware('auth:sanctum')->group(function () {
+        Route::get('profile', [AdminController::class, 'adminProfile']);
+    });
+});
 
 
 
